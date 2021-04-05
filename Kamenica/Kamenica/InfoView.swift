@@ -9,7 +9,13 @@ import SwiftUI
 
 struct InfoView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            Text("Kamenica Info")
+                .font(.system(.largeTitle, design: .rounded))
+                .fontWeight(.black)
+            Text("Verzija 1.0")
+            Text("Red vožnje: 01.04.2021.")
+        }
     }
 }
 
