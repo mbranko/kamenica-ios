@@ -39,21 +39,21 @@ class NotificationService: NSObject {
         let content      = UNMutableNotificationContent()
         content.title    = "Autobus"
         //content.subtitle = NotificationSubtitle.timer.rawValue
-        content.sound    = UNNotificationSound.init(named: .waterSound)
+//        content.sound    = UNNotificationSound.init(named: .waterSound)
         
         //Setup Time Interval Trigger to notify after the time interval, and optionally repeat
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: interval, repeats: repeatedly)
         
         //Setup request to schedule a local notification
-        let request = UNNotificationRequest(identifier: NotificationRequestIdentifier.timer.rawValue,
-                                            content: content,
-                                            trigger: trigger)
+//        let request = UNNotificationRequest(identifier: NotificationRequestIdentifier.timer.rawValue,
+//                                            content: content,
+//                                            trigger: trigger)
         
         //Remove the pending request if needed
-        self.removePendingNotifications(NotificationRequestIdentifier.timer.rawValue)
+//        self.removePendingNotifications(NotificationRequestIdentifier.timer.rawValue)
         
         //Add the request to the current UNUserNotificationCenter
-        self.UNCurrentCenter.add(request)
+//        self.UNCurrentCenter.add(request)
     }
     
     
