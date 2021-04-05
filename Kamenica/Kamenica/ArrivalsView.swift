@@ -8,13 +8,23 @@
 import SwiftUI
 
 struct ArrivalsView: View {
-    var body: some View {
-        Text("Dolasci u Kamenicu")
+  var body: some View {
+    VStack {
+      Text("Polasci za Kamenicu").font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/).fontWeight(.heavy)
+      List {
+        BusLineView()
+        BusLineView()
+        BusLineView()
+        BusLineView()
+        BusLineView()
+        BusLineView()
+      }
     }
+  }
 }
 
 struct ArrivalsView_Previews: PreviewProvider {
-    static var previews: some View {
-        ArrivalsView()
-    }
+  static var previews: some View {
+    ArrivalsView()
+  }
 }

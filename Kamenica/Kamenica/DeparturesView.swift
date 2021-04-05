@@ -1,20 +1,24 @@
-//
-//  DeparturesView.swift
-//  Kamenica
-//
-//  Created by Branko Milosavljevic on 4.4.21..
-//
 
 import SwiftUI
 
 struct DeparturesView: View {
-    var body: some View {
-        Text("Polasci iz Kamenice")
+  var body: some View {
+    VStack {
+      Text("Polasci iz Kamenice").font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/).fontWeight(.heavy)
+      List {
+        BusLineView()
+        BusLineView()
+        BusLineView()
+        BusLineView()
+        BusLineView()
+        BusLineView()
+      }
     }
+  }
 }
 
 struct DeparturesView_Previews: PreviewProvider {
-    static var previews: some View {
-        DeparturesView()
-    }
+  static var previews: some View {
+    DeparturesView()
+  }
 }

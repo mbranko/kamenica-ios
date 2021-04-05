@@ -1,26 +1,28 @@
-//
-//  InfoView.swift
-//  Kamenica
-//
-//  Created by Branko Milosavljevic on 4.4.21..
-//
-
 import SwiftUI
 
 struct InfoView: View {
-    var body: some View {
-        VStack {
-            Text("Kamenica Info")
-                .font(.system(.largeTitle, design: .rounded))
-                .fontWeight(.black)
-            Text("Verzija 1.0")
-            Text("Red vožnje: 01.04.2021.")
-        }
+  
+  @Binding var timeTable: TimeTable
+  
+  var timeTableDate: String {
+    let dateFormat = DateFormatter()
+    dateFormat.dateFormat = "dd.MM.yyyy."
+    return dateFormat.string(from: timeTable.date)
+  }
+  
+  var body: some View {
+    VStack {
+      Text("Kamenica Info")
+        .font(.system(.largeTitle, design: .rounded))
+        .fontWeight(.black).padding()
+      Text("Verzija 1.0").padding()
+      Text("Red vožnje: \(timeTableDate)").padding()
     }
+  }
 }
 
 struct InfoView_Previews: PreviewProvider {
-    static var previews: some View {
-        InfoView()
-    }
+  static var previews: some View {
+    InfoView(timeTable: .constant(TimeTable()))
+  }
 }
