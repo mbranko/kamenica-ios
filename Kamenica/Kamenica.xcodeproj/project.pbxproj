@@ -15,6 +15,7 @@
 		195E5A6A261A6AD600AC48C5 /* ArrivalsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195E5A69261A6AD600AC48C5 /* ArrivalsView.swift */; };
 		195E5A6D261A6C0A00AC48C5 /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195E5A6C261A6C0A00AC48C5 /* InfoView.swift */; };
 		195E5A70261A71BA00AC48C5 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195E5A6F261A71BA00AC48C5 /* Model.swift */; };
+		19BA17F3261BBED90024298F /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19BA17F2261BBED90024298F /* NotificationService.swift */; };
 		19C9FECB261B417600EEA4FF /* BusLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C9FECA261B417600EEA4FF /* BusLineView.swift */; };
 		19C9FECE261B421700EEA4FF /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C9FECD261B421700EEA4FF /* Networking.swift */; };
 /* End PBXBuildFile section */
@@ -30,6 +31,7 @@
 		195E5A69261A6AD600AC48C5 /* ArrivalsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrivalsView.swift; sourceTree = "<group>"; };
 		195E5A6C261A6C0A00AC48C5 /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
 		195E5A6F261A71BA00AC48C5 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		19BA17F2261BBED90024298F /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		19C9FECA261B417600EEA4FF /* BusLineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusLineView.swift; sourceTree = "<group>"; };
 		19C9FECD261B421700EEA4FF /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -64,6 +66,7 @@
 		195E5A55261A65C500AC48C5 /* Kamenica */ = {
 			isa = PBXGroup;
 			children = (
+				19BA17F2261BBED90024298F /* NotificationService.swift */,
 				195E5A56261A65C500AC48C5 /* KamenicaApp.swift */,
 				195E5A58261A65C500AC48C5 /* ContentView.swift */,
 				19C9FECD261B421700EEA4FF /* Networking.swift */,
@@ -160,6 +163,7 @@
 				195E5A59261A65C500AC48C5 /* ContentView.swift in Sources */,
 				195E5A67261A6AC400AC48C5 /* DeparturesView.swift in Sources */,
 				19C9FECE261B421700EEA4FF /* Networking.swift in Sources */,
+				19BA17F3261BBED90024298F /* NotificationService.swift in Sources */,
 				195E5A70261A71BA00AC48C5 /* Model.swift in Sources */,
 				19C9FECB261B417600EEA4FF /* BusLineView.swift in Sources */,
 				195E5A6D261A6C0A00AC48C5 /* InfoView.swift in Sources */,

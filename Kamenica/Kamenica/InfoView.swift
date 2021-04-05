@@ -2,12 +2,12 @@ import SwiftUI
 
 struct InfoView: View {
   
-  @Binding var timeTable: TimeTable
+  @Binding var tableDate: Date
   
   var timeTableDate: String {
     let dateFormat = DateFormatter()
     dateFormat.dateFormat = "dd.MM.yyyy."
-    return dateFormat.string(from: timeTable.date)
+    return dateFormat.string(from: tableDate)
   }
   
   var body: some View {
@@ -23,6 +23,6 @@ struct InfoView: View {
 
 struct InfoView_Previews: PreviewProvider {
   static var previews: some View {
-    InfoView(timeTable: .constant(TimeTable()))
+    InfoView(tableDate: .constant(Date()))
   }
 }

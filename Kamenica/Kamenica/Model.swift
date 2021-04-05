@@ -1,10 +1,3 @@
-//
-//  Model.swift
-//  Kamenica
-//
-//  Created by Branko Milosavljevic on 5.4.21..
-//
-
 import Foundation
 
 struct TimeTableItem: Codable {
@@ -29,7 +22,19 @@ struct TimeTable: Codable {
   }
 }
 
-struct BusListItem {
+struct BusListItem: Hashable {
+  let id = UUID()
   let date: Date
   let line: Int
+  let tag: String?
+  var alarm: Bool = false
+  init(_ date: Date, _ line: Int, _ tag: String?) {
+    self.date = date
+    self.line = line
+    self.tag = tag
+  }
+  func hash(into hasher: inout Hasher) {
+    hasher.combine(date)
+    hasher.combine(line)
+  }
 }
