@@ -20,12 +20,27 @@ struct DeparturesView: View {
           }
         }
       }
-    }
+//    }
+    }.onReceive(NotificationCenter.default.publisher(for: NSNotification.Name.init("alarmoff")), perform: { obj in
+      if let userInfo = obj.userInfo, let itemUuid = userInfo["itemUuid"] as? String {
+        for var item in busesFrom {
+          print(item.id.uuidString == itemUuid)
+          if item.id.uuidString == itemUuid {
+            item.alarm.toggle()
+          }
+        }
+      }
+    })
   }
   
   private func setAlarm(item busItem: BusListItem) {
     if let index = self.busesFrom.firstIndex(where: {$0.id == busItem.id}) {
       self.busesFrom[index].alarm.toggle()
+      if self.busesFrom[index].alarm {
+        NotificationService.sharedInstance.requestTimerNotification(busItem)
+      } else {
+        NotificationService.sharedInstance.removePendingNotifications(busItem)
+      }
     }
   }
 }

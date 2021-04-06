@@ -24,6 +24,8 @@ struct ContentView: View {
   }
   
   func initData() {
+    NotificationService.sharedInstance.authorizeNotification()
+    NotificationService.sharedInstance.registerCategories()
     loadData(view: self)
   }
 }

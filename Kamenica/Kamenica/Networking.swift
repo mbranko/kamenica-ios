@@ -27,6 +27,7 @@ func loadData(view: ContentView) {
       }
     }.resume()
   } else {
+    print("loading from file")
     let jsonData = text.data(using: .utf8)!
     if let content = try? JSONDecoder().decode(TimeTable.self, from: jsonData) {
       DispatchQueue.main.async {
@@ -101,6 +102,7 @@ func createBusList(_ timeTable: TimeTable) -> ([BusListItem], [BusListItem]) {
   toKamenica.sort {
     $0.date < $1.date
   }
+  print(fromKamenica.count, toKamenica.count)
   return (fromKamenica, toKamenica)
 }
 
