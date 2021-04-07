@@ -38,3 +38,9 @@ struct BusListItem: Hashable {
     hasher.combine(line)
   }
 }
+
+class AppState: ObservableObject {
+  @Published var busesFrom: [BusListItem] = []
+  @Published var busesTo: [BusListItem] = []
+  @Published var timeTableDate: Date = Date()
+}

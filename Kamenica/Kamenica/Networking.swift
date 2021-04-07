@@ -1,7 +1,7 @@
 import Foundation
 import SystemConfiguration
 
-func loadData(view: ContentView) {
+func loadData(_ appState: AppState) {
   if isNetworkReachable() {
     print("reading timetable from URL")
     guard let url = URL(string: "https://kamenica.info/media/bus-lines.json") else {
@@ -20,8 +20,8 @@ func loadData(view: ContentView) {
           let forSave = try? String(data: JSONEncoder().encode(obj), encoding: .utf8)
           writeFile("bus-lines.json", forSave!)
           DispatchQueue.main.async {
-            (view.busesFrom, view.busesTo) = createBusList(obj)
-            view.tableDate = obj.date
+            (appState.busesFrom, appState.busesTo) = createBusList(obj)
+            appState.timeTableDate = obj.date
           }
         } catch let error {
           print(error)
@@ -34,8 +34,8 @@ func loadData(view: ContentView) {
     let jsonData = text.data(using: .utf8)!
     if let content = try? JSONDecoder().decode(TimeTable.self, from: jsonData) {
       DispatchQueue.main.async {
-        view.tableDate = content.date
-        (view.busesFrom, view.busesTo) = createBusList(content)
+        (appState.busesFrom, appState.busesTo) = createBusList(content)
+        appState.timeTableDate = content.date
       }
     }
   }

@@ -1,9 +1,11 @@
 
 import SwiftUI
+import SwiftUIRefresh
 
 struct DeparturesView: View {
-  
-  @Binding var busesFrom: [BusListItem]
+
+  @EnvironmentObject var appState: AppState
+  @State private var isShowing = false
   
   var body: some View {
     VStack {
@@ -12,10 +14,10 @@ struct DeparturesView: View {
         Text("Kamenica ➠ grad").font(Font.custom("Titillium Web", size: 40)).fontWeight(.bold).foregroundColor(.white).padding(10).padding(.top, 30)
         Spacer()
       }.background(Color(UIColor(rgb: 0x48668A)))
-      List(busesFrom.indices, id: \.self) { index in
-        BusLineView(line: $busesFrom[index]).contextMenu {
+      List(appState.busesFrom.indices, id: \.self) { index in
+        BusLineView(line: $appState.busesFrom[index]).contextMenu {
           Button(action: {
-            self.setAlarm(item: busesFrom[index])
+            self.setAlarm(item: appState.busesFrom[index])
           }) {
             HStack {
               Text("Alarm 15 min")
@@ -24,12 +26,17 @@ struct DeparturesView: View {
           }
         }
       }
+      .pullToRefresh(isShowing: $isShowing) {
+        loadData(appState)
+        isShowing = false
+        print("refreshed data")
+      }
     }.onReceive(NotificationCenter.default.publisher(for: NSNotification.Name.init("alarmoff")), perform: { obj in
       if let userInfo = obj.userInfo, let itemUuid = userInfo["itemUuid"] as? String {
-        for i in 0...busesFrom.count-1 {
-          if busesFrom[i].id.uuidString == itemUuid {
+        for i in 0...appState.busesFrom.count-1 {
+          if appState.busesFrom[i].id.uuidString == itemUuid {
             DispatchQueue.main.async {
-              busesFrom[i].alarm.toggle()
+              appState.busesFrom[i].alarm.toggle()
             }
           }
         }
@@ -39,9 +46,9 @@ struct DeparturesView: View {
   }
   
   private func setAlarm(item busItem: BusListItem) {
-    if let index = self.busesFrom.firstIndex(where: {$0.id == busItem.id}) {
-      self.busesFrom[index].alarm.toggle()
-      if self.busesFrom[index].alarm {
+    if let index = appState.busesFrom.firstIndex(where: {$0.id == busItem.id}) {
+      appState.busesFrom[index].alarm.toggle()
+      if appState.busesFrom[index].alarm {
         NotificationService.sharedInstance.requestTimerNotification(busItem)
       } else {
         NotificationService.sharedInstance.removePendingNotifications(busItem)
@@ -52,11 +59,6 @@ struct DeparturesView: View {
 
 struct DeparturesView_Previews: PreviewProvider {
   static var previews: some View {
-    DeparturesView(busesFrom: .constant([
-      BusListItem(Date(), 71, nil),
-      BusListItem(Date(), 72, nil),
-      BusListItem(Date(), 73, nil),
-      BusListItem(Date(), 74, nil),
-    ]))
+    DeparturesView()
   }
 }

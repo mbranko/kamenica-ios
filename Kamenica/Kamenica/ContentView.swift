@@ -2,31 +2,39 @@ import SwiftUI
 
 struct ContentView: View {
   
-  @State var tableDate = Date()
-  @State var busesFrom: [BusListItem] = []
-  @State var busesTo: [BusListItem] = []
+  @StateObject var appState: AppState = AppState()
 
   var body: some View {
     TabView {
-      DeparturesView(busesFrom: $busesFrom)
+      DeparturesView()
         .tabItem {
           Label("Iz Kamenice", systemImage: "bus")
         }
-      ArrivalsView(busesTo: $busesTo)
+        .environmentObject(appState)
+      ArrivalsView()
         .tabItem {
           Label("Za Kamenicu", systemImage: "bus.fill")
         }
-      InfoView(tableDate: $tableDate)
+        .environmentObject(appState)
+      InfoView()
         .tabItem {
           Label("Info", systemImage: "info.circle")
         }
-    }.onAppear(perform: initData)
+        .environmentObject(appState)
+    }
+    .onAppear(perform: initData)
+    .onReceive(NotificationCenter.default.publisher(for: UIApplication.willEnterForegroundNotification)) { _ in
+      print("willEnterForeground")
+      loadData(appState)
+    }
   }
   
   func initData() {
     NotificationService.sharedInstance.authorizeNotification()
     NotificationService.sharedInstance.registerCategories()
-    loadData(view: self)
+    print("loading data")
+    loadData(appState)
+    print("data loaded")
   }
 }
 

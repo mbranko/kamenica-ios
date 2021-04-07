@@ -13,7 +13,7 @@ struct BusLineView: View {
   var body: some View {
     HStack {
       Text("\(line.line)").font(Font.custom("Titillium Web", size: 30)).fontWeight(.bold).foregroundColor(.white).frame(width: 50, height: 50, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/).background(Color(UIColor(rgb: 0x48668A)))
-      Text("\(line.tag ?? "")").font(Font.custom("Titillium Web", size: 20)).fontWeight(.bold).foregroundColor(.gray).frame(width:40)
+      Text("\(line.tag ?? "")").font(Font.custom("Titillium Web", size: 20)).fontWeight(.bold).foregroundColor(.gray).frame(width:45)
       Text("\(busTime)").font(Font.custom("Titillium Web", size: 20)).fontWeight(.bold)
       if line.alarm {
         Spacer()
