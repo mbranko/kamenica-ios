@@ -13,10 +13,9 @@ struct InfoView: View {
   var body: some View {
     VStack {
       Text("Kamenica Info")
-        .font(.system(.largeTitle, design: .rounded))
-        .fontWeight(.black).padding()
-      Text("Verzija 1.0").padding()
-      Text("Red vožnje: \(timeTableDate)").padding()
+        .font(Font.custom("Titillium Web", size: 40))
+        .fontWeight(.bold).foregroundColor(Color(UIColor(rgb: 0x48668A))).padding()
+      Text("Red vožnje: \(timeTableDate)").font(Font.custom("Titillium Web", size: 20)).padding()
     }
   }
 }

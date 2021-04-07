@@ -1,14 +1,14 @@
 import Foundation
+import SystemConfiguration
 
 func loadData(view: ContentView) {
-  let text: String = readFile("bus-lines.json")
-  if text == "" {
+  if isNetworkReachable() {
+    print("reading timetable from URL")
     guard let url = URL(string: "https://kamenica.info/media/bus-lines.json") else {
       print("Invalid URL")
       return
     }
     let request = URLRequest(url: url)
-    print(request)
     URLSession.shared.dataTask(with: request) { data, response, error in
       if let data = data {
         do {
@@ -17,17 +17,20 @@ func loadData(view: ContentView) {
           dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
           decoder.dateDecodingStrategy = .formatted(dateFormatter)
           let obj = try decoder.decode(TimeTable.self, from: data)
-          (view.busesFrom, view.busesTo) = createBusList(obj)
-          view.tableDate = obj.date
           let forSave = try? String(data: JSONEncoder().encode(obj), encoding: .utf8)
           writeFile("bus-lines.json", forSave!)
+          DispatchQueue.main.async {
+            (view.busesFrom, view.busesTo) = createBusList(obj)
+            view.tableDate = obj.date
+          }
         } catch let error {
           print(error)
         }
       }
     }.resume()
   } else {
-    print("loading from file")
+    print("reading timetable from cached file")
+    let text: String = readFile("bus-lines.json")
     let jsonData = text.data(using: .utf8)!
     if let content = try? JSONDecoder().decode(TimeTable.self, from: jsonData) {
       DispatchQueue.main.async {
@@ -102,7 +105,8 @@ func createBusList(_ timeTable: TimeTable) -> ([BusListItem], [BusListItem]) {
   toKamenica.sort {
     $0.date < $1.date
   }
-  print(fromKamenica.count, toKamenica.count)
+  print("found buses from Kamenica: ", fromKamenica.count)
+  print("found buses to Kamenica: ", toKamenica.count)
   return (fromKamenica, toKamenica)
 }
 
@@ -160,4 +164,11 @@ extension Date {
         return "X"
     }
   }
+}
+
+func isNetworkReachable() -> Bool {
+  let reachability = SCNetworkReachabilityCreateWithName(nil, "kamenica.info")
+  var flags = SCNetworkReachabilityFlags()
+  SCNetworkReachabilityGetFlags(reachability!, &flags)
+  return flags.contains(.reachable)
 }

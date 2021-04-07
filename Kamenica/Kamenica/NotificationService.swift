@@ -28,9 +28,9 @@ class NotificationService: NSObject, UNUserNotificationCenterDelegate {
     content.categoryIdentifier = "alarm"
     content.sound = UNNotificationSound.default
     
-//    let alarmDate = Calendar.current.date(byAdding: .minute, value: -15, to: busListItem.date)!
-    let today = Date()
-    let alarmDate = Calendar.current.date(byAdding: .minute, value: 1, to: today)!
+    let alarmDate = Calendar.current.date(byAdding: .minute, value: -15, to: busListItem.date)!
+//    let today = Date()
+//    let alarmDate = Calendar.current.date(byAdding: .minute, value: 1, to: today)!
     var dateComponents = DateComponents()
     dateComponents.hour = Calendar.current.component(.hour, from: alarmDate)
     dateComponents.minute = Calendar.current.component(.minute, from: alarmDate)

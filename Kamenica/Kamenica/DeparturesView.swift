@@ -7,7 +7,11 @@ struct DeparturesView: View {
   
   var body: some View {
     VStack {
-      Text("Kamenica ➠ grad").font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/).fontWeight(.heavy)
+      HStack{
+        Spacer()
+        Text("Kamenica ➠ grad").font(Font.custom("Titillium Web", size: 40)).fontWeight(.bold).foregroundColor(.white).padding(10)
+        Spacer()
+      }.background(Color(UIColor(rgb: 0x48668A)))
       List(busesFrom.indices, id: \.self) { index in
         BusLineView(line: $busesFrom[index]).contextMenu {
           Button(action: {
@@ -20,17 +24,18 @@ struct DeparturesView: View {
           }
         }
       }
-//    }
     }.onReceive(NotificationCenter.default.publisher(for: NSNotification.Name.init("alarmoff")), perform: { obj in
       if let userInfo = obj.userInfo, let itemUuid = userInfo["itemUuid"] as? String {
-        for var item in busesFrom {
-          print(item.id.uuidString == itemUuid)
-          if item.id.uuidString == itemUuid {
-            item.alarm.toggle()
+        for i in 0...busesFrom.count-1 {
+          if busesFrom[i].id.uuidString == itemUuid {
+            DispatchQueue.main.async {
+              busesFrom[i].alarm.toggle()
+            }
           }
         }
       }
     })
+    .edgesIgnoringSafeArea(.top)
   }
   
   private func setAlarm(item busItem: BusListItem) {

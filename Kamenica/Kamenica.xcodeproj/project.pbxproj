@@ -15,6 +15,11 @@
 		195E5A6A261A6AD600AC48C5 /* ArrivalsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195E5A69261A6AD600AC48C5 /* ArrivalsView.swift */; };
 		195E5A6D261A6C0A00AC48C5 /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195E5A6C261A6C0A00AC48C5 /* InfoView.swift */; };
 		195E5A70261A71BA00AC48C5 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195E5A6F261A71BA00AC48C5 /* Model.swift */; };
+		198D55EE261DA02700640B69 /* TitilliumWeb-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 198D55EB261DA02700640B69 /* TitilliumWeb-Regular.ttf */; };
+		198D55EF261DA02700640B69 /* TitilliumWeb-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 198D55EC261DA02700640B69 /* TitilliumWeb-Bold.ttf */; };
+		198D55F0261DA02700640B69 /* TitilliumWeb-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 198D55ED261DA02700640B69 /* TitilliumWeb-SemiBold.ttf */; };
+		198D55F3261DCEB800640B69 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198D55F2261DCEB800640B69 /* Colors.swift */; };
+		198D55FB261DD16500640B69 /* Kamenica-logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 198D55FA261DD16500640B69 /* Kamenica-logo.png */; };
 		19BA17F3261BBED90024298F /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19BA17F2261BBED90024298F /* NotificationService.swift */; };
 		19C9FECB261B417600EEA4FF /* BusLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C9FECA261B417600EEA4FF /* BusLineView.swift */; };
 		19C9FECE261B421700EEA4FF /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C9FECD261B421700EEA4FF /* Networking.swift */; };
@@ -31,6 +36,11 @@
 		195E5A69261A6AD600AC48C5 /* ArrivalsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrivalsView.swift; sourceTree = "<group>"; };
 		195E5A6C261A6C0A00AC48C5 /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
 		195E5A6F261A71BA00AC48C5 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		198D55EB261DA02700640B69 /* TitilliumWeb-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TitilliumWeb-Regular.ttf"; sourceTree = "<group>"; };
+		198D55EC261DA02700640B69 /* TitilliumWeb-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TitilliumWeb-Bold.ttf"; sourceTree = "<group>"; };
+		198D55ED261DA02700640B69 /* TitilliumWeb-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TitilliumWeb-SemiBold.ttf"; sourceTree = "<group>"; };
+		198D55F2261DCEB800640B69 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		198D55FA261DD16500640B69 /* Kamenica-logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Kamenica-logo.png"; sourceTree = "<group>"; };
 		19BA17F2261BBED90024298F /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		19C9FECA261B417600EEA4FF /* BusLineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusLineView.swift; sourceTree = "<group>"; };
 		19C9FECD261B421700EEA4FF /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
@@ -66,12 +76,15 @@
 		195E5A55261A65C500AC48C5 /* Kamenica */ = {
 			isa = PBXGroup;
 			children = (
+				198D55F9261DD15800640B69 /* Images */,
+				198D55EA261DA00B00640B69 /* Fonts */,
 				19BA17F2261BBED90024298F /* NotificationService.swift */,
 				195E5A56261A65C500AC48C5 /* KamenicaApp.swift */,
 				195E5A58261A65C500AC48C5 /* ContentView.swift */,
 				19C9FECD261B421700EEA4FF /* Networking.swift */,
 				195E5A6C261A6C0A00AC48C5 /* InfoView.swift */,
 				195E5A66261A6AC400AC48C5 /* DeparturesView.swift */,
+				198D55F2261DCEB800640B69 /* Colors.swift */,
 				19C9FECA261B417600EEA4FF /* BusLineView.swift */,
 				195E5A6F261A71BA00AC48C5 /* Model.swift */,
 				195E5A69261A6AD600AC48C5 /* ArrivalsView.swift */,
@@ -88,6 +101,24 @@
 				195E5A5D261A65C600AC48C5 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		198D55EA261DA00B00640B69 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				198D55EC261DA02700640B69 /* TitilliumWeb-Bold.ttf */,
+				198D55EB261DA02700640B69 /* TitilliumWeb-Regular.ttf */,
+				198D55ED261DA02700640B69 /* TitilliumWeb-SemiBold.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		198D55F9261DD15800640B69 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				198D55FA261DD16500640B69 /* Kamenica-logo.png */,
+			);
+			path = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -147,7 +178,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				198D55EE261DA02700640B69 /* TitilliumWeb-Regular.ttf in Resources */,
 				195E5A5E261A65C600AC48C5 /* Preview Assets.xcassets in Resources */,
+				198D55EF261DA02700640B69 /* TitilliumWeb-Bold.ttf in Resources */,
+				198D55FB261DD16500640B69 /* Kamenica-logo.png in Resources */,
+				198D55F0261DA02700640B69 /* TitilliumWeb-SemiBold.ttf in Resources */,
 				195E5A5B261A65C600AC48C5 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -160,6 +195,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				195E5A6A261A6AD600AC48C5 /* ArrivalsView.swift in Sources */,
+				198D55F3261DCEB800640B69 /* Colors.swift in Sources */,
 				195E5A59261A65C500AC48C5 /* ContentView.swift in Sources */,
 				195E5A67261A6AC400AC48C5 /* DeparturesView.swift in Sources */,
 				19C9FECE261B421700EEA4FF /* Networking.swift in Sources */,

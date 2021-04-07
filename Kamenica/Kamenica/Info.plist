@@ -2,6 +2,12 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>UIAppFonts</key>
+	<array>
+		<string>TitilliumWeb-Regular.ttf</string>
+		<string>TitilliumWeb-SemiBold.ttf</string>
+		<string>TitilliumWeb-Bold.ttf</string>
+	</array>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>
@@ -28,7 +34,14 @@
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
 	<key>UILaunchScreen</key>
-	<dict/>
+	<dict>
+		<key>UIImageRespectsSafeAreaInsets</key>
+		<false/>
+		<key>UIColorName</key>
+		<string>Launchscreen-background</string>
+		<key>UIImageName</key>
+		<string>Kamenica-logo.png</string>
+	</dict>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
