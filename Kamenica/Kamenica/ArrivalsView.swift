@@ -8,7 +8,7 @@ struct ArrivalsView: View {
     VStack {
       HStack {
         Spacer()
-        Text("grad ➠ Kamenica").font(Font.custom("Titillium Web", size: 40)).fontWeight(.bold).foregroundColor(Color(UIColor(rgb: 0x48668A))).padding(10)
+        Text("grad ➠ Kamenica").font(Font.custom("Titillium Web", size: 40)).fontWeight(.bold).foregroundColor(Color(UIColor(rgb: 0x48668A))).padding(10).padding(.top, 30)
         Spacer()
       }
       List(busesTo.indices, id: \.self) { index in

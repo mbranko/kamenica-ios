@@ -9,7 +9,7 @@ struct DeparturesView: View {
     VStack {
       HStack{
         Spacer()
-        Text("Kamenica ➠ grad").font(Font.custom("Titillium Web", size: 40)).fontWeight(.bold).foregroundColor(.white).padding(10)
+        Text("Kamenica ➠ grad").font(Font.custom("Titillium Web", size: 40)).fontWeight(.bold).foregroundColor(.white).padding(10).padding(.top, 30)
         Spacer()
       }.background(Color(UIColor(rgb: 0x48668A)))
       List(busesFrom.indices, id: \.self) { index in
