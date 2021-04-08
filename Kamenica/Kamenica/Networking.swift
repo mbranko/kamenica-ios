@@ -115,9 +115,9 @@ func include(_ now: Date, _ hour: Int, _ minute: Int, _ dayType: String, _ item:
     return false
   }
   if hour < 20 {
-    return item.h >= hour && item.m >= minute && now.dayType == dayType
+    return (item.h > hour || (item.h == hour && item.m >= minute)) && now.dayType == dayType
   } else {
-    return (item.h >= hour && item.m >= minute && now.dayType == dayType) || (item.h <= 6 && item.m <= 59 && now.nextDayType == dayType)
+    return ((item.h > hour || (item.h == hour && item.m >= minute)) && now.dayType == dayType) || (item.h <= 6 && item.m <= 59 && now.nextDayType == dayType)
   }
 }
 
