@@ -66,8 +66,6 @@ func createBusList(_ timeTable: TimeTable) -> ([BusListItem], [BusListItem]) {
   var fromKamenica: [BusListItem] = []
   var toKamenica: [BusListItem] = []
   let now = Date()
-  let hour = Calendar.current.component(.hour, from: now)
-  let minute = Calendar.current.component(.minute, from: now)
   let day = Calendar.current.component(.day, from: now)
   let month = Calendar.current.component(.month, from: now)
   let year = Calendar.current.component(.year, from: now)
@@ -75,6 +73,10 @@ func createBusList(_ timeTable: TimeTable) -> ([BusListItem], [BusListItem]) {
   components.year = year
   components.month = month
   components.day = day
+
+  let referenceTime = Calendar.current.date(byAdding: .minute, value: -15, to: now)!
+  let hour = Calendar.current.component(.hour, from: referenceTime)
+  let minute = Calendar.current.component(.minute, from: referenceTime)
   for line in timeTable.lines {
     for item in line.from {
       if include(now, hour, minute, line.day, item, line.line, true) {
